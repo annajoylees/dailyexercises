@@ -11,7 +11,7 @@ let book = {
 //access the full name of the author in the
 //object "book" and set it to o1
 //format name as "Dan Brown"
-let o1 = `${book[0].author.firstName}${book[0].author.lastName}`
+let o1 = `${book.author.firstName}${book.author.lastName}`;
 
 console.assert(o1 == "Dan Brown");
 
@@ -24,17 +24,19 @@ console.assert(o2 == 3);
 //Q3
 //use a method that checks if the object "book" has a genre of
 //"Mystery" if so, return true
-let o3 = book.genre.includes("Mystery")
+let o3 = book.genre.includes("Mystery");
 
 console.assert(o3 == true);
 
 //Q4
 //set o4 to a function that checks if the object "book" is released
 //after 2012, if so have it return true
-let o4 = book.release
-function releaseDate (o4) {
-  if (o4 > 2012)
+let o4 = function (obj) {
+  if (obj.release > 2012){
     return true
+  } else {
+    return false
+  }
 }
 
 console.assert(o4(book) == true);
@@ -43,6 +45,11 @@ console.assert(o4(book) == true);
 //set o5 to a function that returns the number of keys
 //found in the object "book"
 //hint: for in loop
-let o5;
+let keyCount = 0
+let o5 = function (obj){
+  for(let key in obj)
+    keyCount ++;
+    return keyCount
+}
 
 console.assert(o5(book) == 6);
